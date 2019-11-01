@@ -1,4 +1,4 @@
-package com.dzone.task.executor;
+package com.github.sonus21.task.executor;
 
 import com.github.sonus21.rqueue.annotation.RqueueListener;
 import lombok.extern.slf4j.Slf4j;

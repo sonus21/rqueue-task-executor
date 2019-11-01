@@ -1,4 +1,4 @@
-package com.dzone.task.executor;
+package com.github.sonus21.task.executor;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

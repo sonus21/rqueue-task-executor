@@ -1,4 +1,4 @@
-package com.dzone.task.executor;
+package com.github.sonus21.task.executor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

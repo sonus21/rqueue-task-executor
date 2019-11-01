@@ -22,7 +22,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'com.github.sonus21:rqueue-spring-boot-starter:1.0-RELEASE'
+    implementation 'com.github.sonus21:rqueue-spring-boot-starter:1.1-RELEASE'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'

@@ -1,4 +1,4 @@
-package com.dzone.task.executor;
+package com.github.sonus21.task.executor;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
