@@ -13,7 +13,7 @@ public class MessageListener {
     log.info("Email {}", email);
   }
 
-  @RqueueListener(delayedQueue = "true", value = "${invoice.queue.name}")
+  @RqueueListener(value = "${invoice.queue.name}")
   public void generateInvoice(Invoice invoice) {
     log.info("Invoice {}", invoice);
   }

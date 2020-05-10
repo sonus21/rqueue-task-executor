@@ -1,6 +1,6 @@
 package com.github.sonus21.task.executor;
 
-import com.github.sonus21.rqueue.producer.RqueueMessageSender;
+import com.github.sonus21.rqueue.core.RqueueMessageSender;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,14 +29,14 @@ public class Controller {
   public String sendEmail(
       @RequestParam String email, @RequestParam String subject, @RequestParam String content) {
     log.info("Sending email");
-    rqueueMessageSender.put(emailQueueName, new Email(email, subject, content));
+    rqueueMessageSender.enqueue(emailQueueName, new Email(email, subject, content));
     return "Please check your inbox!";
   }
 
   @GetMapping("invoice")
   public String generateInvoice(@RequestParam String id, @RequestParam String type) {
     log.info("Generate invoice");
-    rqueueMessageSender.put(invoiceQueueName, new Invoice(id, type), invoiceDelay);
+    rqueueMessageSender.enqueueIn(invoiceQueueName, new Invoice(id, type), invoiceDelay);
     return "Invoice would be generated in " + invoiceDelay + " milliseconds";
   }
 }
