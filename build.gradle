@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.dzone'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 configurations {
@@ -22,7 +22,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'com.github.sonus21:rqueue-spring-boot-starter:1.2-RELEASE'
+    implementation 'com.github.sonus21:rqueue-spring-boot-starter:2.0.0-RELEASE'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
