@@ -17,12 +17,13 @@ configurations {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'com.github.sonus21:rqueue-spring-boot-starter:2.6.1-RELEASE'
+    implementation 'com.github.sonus21:rqueue-spring-boot-starter:2.7.0-RELEASE'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
