@@ -1,6 +1,6 @@
 package com.github.sonus21.task.executor;
 
-import com.github.sonus21.rqueue.core.RqueueMessageSender;
+import com.github.sonus21.rqueue.core.RqueueMessageEnqueuer;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Slf4j
 public class Controller {
-  private @NonNull RqueueMessageSender rqueueMessageSender;
+
+  private @NonNull RqueueMessageEnqueuer rqueueMessageEnqueuer;
 
   @Value("${email.queue.name}")
   private String emailQueueName;
@@ -29,14 +30,14 @@ public class Controller {
   public String sendEmail(
       @RequestParam String email, @RequestParam String subject, @RequestParam String content) {
     log.info("Sending email");
-    rqueueMessageSender.enqueue(emailQueueName, new Email(email, subject, content));
+    rqueueMessageEnqueuer.enqueue(emailQueueName, new Email(email, subject, content));
     return "Please check your inbox!";
   }
 
   @GetMapping("invoice")
   public String generateInvoice(@RequestParam String id, @RequestParam String type) {
     log.info("Generate invoice");
-    rqueueMessageSender.enqueueIn(invoiceQueueName, new Invoice(id, type), invoiceDelay);
+    rqueueMessageEnqueuer.enqueueIn(invoiceQueueName, new Invoice(id, type), invoiceDelay);
     return "Invoice would be generated in " + invoiceDelay + " milliseconds";
   }
 }
